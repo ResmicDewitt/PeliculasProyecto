@@ -35,7 +35,7 @@
 Esta app es ideal para usuarios principiantes en JavaFX que deseen un ejemplo práctico de manejo de listas observables, diálogos de entrada, tablas dinámicas y persistencia básica. No requiere bases de datos externas; todo es local y autónomo.
 
 **Versión:** 1.0  
-**Autor:** Desarrollador Anónimo (basado en código proporcionado)  
+**Autor:** ResmicDewitt
 **Fecha:** Noviembre 2025
 
 ## Características
@@ -303,3 +303,4 @@ Este proyecto está bajo la Licencia MIT. Ver [LICENSE](LICENSE) para detalles.
 ---
 
 **¡Gracias por usar MovieApp! Si tienes dudas, revisa el código o abre un issue. 🎥**
+
