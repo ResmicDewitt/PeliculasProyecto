@@ -1,0 +1,29 @@
+Toy Story 3|Lee Unkrich|2.0E8|103|Ingles|Estados Unidos
+Jules and Jim|François Truffaut|500000.0|105|Frances|Francia
+Yojimbo|Akira Kurosawa|500000.0|110|Japones|Japon
+Moonlight|Barry Jenkins|1500000.0|111|Ingles|Estados Unidos
+The Philadelphia Story|George Cukor|914000.0|112|Ingles|Estados Unidos
+Alien|Ridley Scott|1.1E7|117|Ingles|Estados Unidos
+No Country for Old Men|Ethan Coen|2.5E7|122|Ingles|Estados Unidos
+The Man Who Shot Liberty Valance|John Ford|3200000.0|123|Ingles|Estados Unidos
+La La Land|Damien Chazelle|3.0E7|128|Ingles|Estados Unidos
+Spotlight|Tom McCarthy|2.0E7|129|Ingles|Estados Unidos
+Chinatown|Roman Polanski|6000000.0|130|Ingles|Estados Unidos
+It's a Wonderful Life|Frank Capra|3180000.0|130|Ingles|Estados Unidos
+Manchester by the Sea|Kenneth Lonergan|9000000.0|137|Ingles|Estados Unidos
+The Shawshank Redemption|Frank Darabont|2.5E7|142|Ingles|Estados Unidos
+High and Low|Akira Kurosawa|1000000.0|143|Japones|Japon
+Ikiru|Akira Kurosawa|500000.0|143|Japones|Japon
+The Dark Knight|Christopher Nolan|1.85E8|152|Ingles|Estados Unidos
+There Will Be Blood|Paul Thomas Anderson|2.5E7|158|Ingles|Estados Unidos
+Anatomy of a Murder|Otto Preminger|2000000.0|161|Ingles|Estados Unidos
+The Best Years of Our Lives|William Wyler|2000000.0|170|Ingles|Estados Unidos
+Yi Yi|Edward Yang|1000000.0|173|Mandarin|Taiwan
+La Dolce Vita|Federico Fellini|2000000.0|174|Italiano|Italia
+The Lord of the Rings: The Two Towers|Peter Jackson|9.4E7|179|Ingles|Estados Unidos
+The Best of Youth|Marco Tullio Giordana|2000000.0|366|Italiano|Italia
+Beauty and the Beast|Gary Trousdale|2.5E7|84|Ingles|Estados Unidos
+Pinocchio|Ben Sharpsteen|2600000.0|88|Ingles|Estados Unidos
+Umberto D.|Vittorio De Sica|500000.0|89|Italiano|Italia
+Au hasard Balthazar|Robert Bresson|500000.0|95|Frances|Francia
+The Shop Around the Corner|Ernst Lubitsch|500000.0|99|Ingles|Estados Unidos
