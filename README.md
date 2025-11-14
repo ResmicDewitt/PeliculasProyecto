@@ -302,5 +302,4 @@ Este proyecto está bajo la Licencia MIT. Ver [LICENSE](LICENSE) para detalles.
 
 ---
 
-**¡Gracias por usar MovieApp! Si tienes dudas, revisa el código o abre un issue. 🎥**
 
