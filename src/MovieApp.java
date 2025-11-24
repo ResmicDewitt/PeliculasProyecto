@@ -18,14 +18,12 @@ import javafx.beans.property.SimpleStringProperty;
 
 public class MovieApp extends Application {
 
-   
     private ObservableList<Movie> movies = FXCollections.observableArrayList();
     private final String FILE_NAME = "movies.txt";
 
     // --- Guardar referencias a la ventana de lista y la tabla ---
     private Stage listStage;
     private TableView<Movie> movieTable;
-
 
     @Override
     public void start(Stage primaryStage) {
@@ -51,7 +49,9 @@ public class MovieApp extends Application {
 
         Button exitBtn = new Button("Salir");
         exitBtn.setOnAction(e -> {
-            saveMovies();
+            // Ya no es estrictamente necesario guardar aquí si guardamos en cada acción,
+            // pero se deja como seguridad.
+            saveMovies(); 
             primaryStage.close();
             if (listStage != null) { 
                 listStage.close();
@@ -93,7 +93,11 @@ public class MovieApp extends Application {
 
         Movie movie = new Movie(title, director, cost, duration, language, country);
         movies.add(movie); 
-        showAlert(Alert.AlertType.INFORMATION, "Película agregada.");
+        
+        // --- CAMBIO: Guardar inmediatamente después de agregar ---
+        saveMovies();
+        
+        showAlert(Alert.AlertType.INFORMATION, "Película agregada y guardada.");
     }
 
     private void searchMovie() {
@@ -141,31 +145,29 @@ public class MovieApp extends Application {
         }
 
         if (comparator != null) {
-            // --- Ordenar la lista observable. La tabla se actualiza sola. ---
             movies.sort(comparator);
-            showAlert(Alert.AlertType.INFORMATION, "Películas ordenadas por " + field + ".");
-
+            
+            // --- CAMBIO: Guardar el nuevo orden en el archivo ---
+            saveMovies();
+            
+            showAlert(Alert.AlertType.INFORMATION, "Películas ordenadas y archivo actualizado.");
         }
     }
 
     // --- Lógica para mostrar/crear la ventana de lista ---
     private void listMovies() {
-        if (movies.isEmpty() && listStage == null) { // Solo mostrar si está vacía Y NUNCA se ha abierto
+        if (movies.isEmpty() && listStage == null) { 
              showAlert(Alert.AlertType.INFORMATION, "No hay películas registradas.");
              return;
         }
 
-        // Crear la ventana solo si no existe
         if (listStage == null) {
             listStage = new Stage();
             listStage.setTitle("Lista de Películas");
 
             movieTable = new TableView<>();
-            
-            // --- Enlazar la tabla directamente a la lista observable ---
             movieTable.setItems(movies);
 
-            // --- Usar lambdas ---
             TableColumn<Movie, String> titleCol = new TableColumn<>("Título");
             titleCol.setCellValueFactory(cellData -> new SimpleStringProperty(cellData.getValue().getTitle()));
 
@@ -196,7 +198,6 @@ public class MovieApp extends Application {
             listStage.setScene(scene);
         }
 
-        // Mostrar la ventana (nueva o existente) y traerla al frente
         listStage.show();
         listStage.toFront();
     }
@@ -209,8 +210,12 @@ public class MovieApp extends Application {
         while (iterator.hasNext()) {
             Movie m = iterator.next();
             if (m.getTitle().equalsIgnoreCase(title)) {
-                iterator.remove(); // La TableView se actualizará sola
-                showAlert(Alert.AlertType.INFORMATION, "Película eliminada.");
+                iterator.remove(); 
+                
+                // --- CAMBIO: Guardar inmediatamente después de eliminar ---
+                saveMovies();
+                
+                showAlert(Alert.AlertType.INFORMATION, "Película eliminada y archivo actualizado.");
                 return;
             }
         }
@@ -220,10 +225,10 @@ public class MovieApp extends Application {
     private String getInput(String header) {
         TextInputDialog dialog = new TextInputDialog();
         dialog.setHeaderText(header);
-        dialog.setTitle(null); // Quitar el título de la ventana de diálogo
+        dialog.setTitle(null); 
         dialog.setContentText(null);
         Optional<String> result = dialog.showAndWait();
-        return result.orElse(null); // Devolver null si se cancela
+        return result.orElse(null); 
     }
 
     private void showAlert(Alert.AlertType type, String message) {
@@ -254,7 +259,6 @@ public class MovieApp extends Application {
                 }
             }
         } catch (IOException | SecurityException e) { 
-            // Archivo no encontrado, error de permisos o de lectura
             System.err.println("No se pudo cargar el archivo, iniciando vacío: " + e.getMessage());
         }
     }
@@ -293,7 +297,6 @@ class Movie {
         this.country = country;
     }
 
-    // Getters públicos (necesarios para el CellValueFactory)
     public String getTitle() { return title; }
     public String getDirector() { return director; }
     public float getCost() { return cost; }
